@@ -22,7 +22,7 @@ function validate() {
     }
 
     var isPostingDateOK = true;
-    if (document.getElementById("postingDate").value == "") 
+    if (document.getElementById("postingDate").checkValidity() == false) 
     {
         isPostingDateOK = false;
         errorlog = errorlog + "<br>Posting Date Invalid!";
@@ -42,14 +42,12 @@ function validate() {
 
     
     if (isEventTypeOK && isEventNameOK && isEventDateOK && isPostingDateOK) {
-        document.getElementById("errorLog").innerHTML = "Form Valid. Review your input <br>Click Submit to Continue.<br>Click Edit to create changes";
-
-        document.getElementById("submit").disabled = false;
-        document.getElementById("edit").disabled = false;
-        document.getElementById("verify").disabled = true;
-        disableSwitch();
+        document.getElementById("errorLog").innerHTML = "Event Created.";
     }
-    else document.getElementById("errorLog").innerHTML = errorlog;
+    else {
+        document.getElementById("errorLog").innerHTML = errorlog;
+        return false;
+    }
 }
 
 
@@ -61,28 +59,7 @@ function clearForm() {
     document.getElementById("eventDateEnd").value = "";
     document.getElementById("postingDate").value = "";
 
-    document.getElementById("errorLog").innerHTML = "Form Cleared."
-
-    document.getElementById("verify").disabled = false;s
-    document.getElementById("submit").disabled = true;
-    document.getElementById("edit").disabled = true;
-    
-
-}
-
-function disableSwitch() {
-    document.getElementById("eventType").disabled = !document.getElementById("eventType").disabled;
-    document.getElementById("eventName").disabled = !document.getElementById("eventName").disabled;
-    document.getElementById("eventDateStart").disabled = !document.getElementById("eventDateStart").disabled;
-    document.getElementById("eventDateEnd").disabled = !document.getElementById("eventDateEnd").disabled;
-    document.getElementById("postingDate").disabled = !document.getElementById("postingDate").disabled;
-}
-
-function editForm() {
-    disableSwitch();
-    document.getElementById("verify").disabled = false;
-    document.getElementById("submit").disabled = true;
-    document.getElementById("edit").disabled = true;
+    document.getElementById("errorLog").innerHTML = "Entry Cancelled."
 }
 
 

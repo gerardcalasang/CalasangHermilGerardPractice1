@@ -7,7 +7,7 @@
     <script src = "js/js.js"></script>
 </head>
 <body>
-    <form action = "js/jsp.jsp">
+    <form>
     <fieldset>
     <label for = "eventType"><b>Event Type:</b></label> &nbsp;&nbsp;&nbsp;&nbsp;
         <select id = "eventType" name = "eventType" required>
@@ -27,22 +27,19 @@
         <input type = "date" name = "eventDateStart" id = "eventDateStart" required> to
         <input type = "date" name = "eventDateEnd" id = "eventDateEnd" required><br>
     <label for = "postingDate"><b>Posting Date</b></label> &nbsp;&nbsp;
-        <input type = "text" name = "postingDate" id = "postingDate" pattern = "^(((0)[0-9])|((1)[0-2]))([\/])([0-2][0-9]|(3)[0-1])([\/])([0-9]{4})$" minlength="10" maxlength="10" required> (Date format: mm-dd-yyyy)
+        <input type = "text" name = "postingDate" id = "postingDate" pattern = "^(((0)[0-9])|((1)[0-2]))([\/])([0-2][0-9]|(3)[0-1])([\/])([0-9]{4})$" minlength="10" maxlength="10" required> (Date format: mm/dd/yyyy)
     </fieldset> 
     <br><br>
-    <input type="checkbox" name="check" value="1st">Is registration required?<br>      
+            <input type="checkbox" name="check" value="event-reg">Is registration required?<br>      
             <input type="checkbox" name="check" value="event-familyprograms" id = "question1">Is this event associated with any Family Programs?<br>      
             <input type="checkbox" name="check" value="event-autosend" id = "question2">Upon Registration Completion, Are Users to Receive an Auto Generated Email?<br>
             <input type="checkbox" name="check" value="event-poc" id = "question3">Is There a Point of Contact?<br>  
             <input type="checkbox" name="check" value="event-hosting-poc" id = "question4">Is There a Hosting Command Point of Contact?<br>  
             <br>      
-    <p id = "errorLog" style = "color:red"></p>
-    <input type = "button" id = "verify" value = "Verify" onClick = "validate()"/>
-    <input type = "button" id = "reset" value = "Reset" onClick = "clearForm()"/>
-    <input type = "button" id = "edit" value = "Edit" onClick = "editForm()" disabled />
-    <input type = "submit" id = "submit" disabled>
+    <input type = "submit" id = "save" value = "Save" onClick = "validate()"/>
+    <input type = "button" id = "reset" value = "Cancel" onClick = "clearForm()"/>
     </form>
-
+    <p id = "errorLog" style = "color:red"></p>
     
 </body>
 </html>
